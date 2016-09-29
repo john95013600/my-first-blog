@@ -44,8 +44,8 @@ h1, h2, h3, h4 {
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
-/*
-p::first-letter {
+
+.date::first-letter {
     font-size: 200%;
-    color: #8A2BE2;
-}*/
+    /*color: #8A2BE2;*/
+}
