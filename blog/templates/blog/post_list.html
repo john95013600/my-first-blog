@@ -4,7 +4,7 @@
 	{% for post in posts %}
         <div class="post">
             <div class="date">
-                <p>Published: {{ post.published_date|date:"Y年 m月 d日 l" }}</p>
+                <p>Post: {{ post.published_date|date:"Y年 m月 d日 l" }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>

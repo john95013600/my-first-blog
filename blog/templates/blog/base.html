@@ -13,14 +13,22 @@
     <div class="page-header">
         {% if user.is_authenticated %}
         <a href="{% url 'post_new' %}" class="top-menu" title="新增貼文"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{% url 'post_draft_list' %}" class="top-menu" title="編輯草稿"><span class="glyphicon glyphicon-edit"></span></a>
+        <p class="top-menu">Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+        {% else %}
+        <a href="{% url 'login' %}" class="top-menu" title="帳號登入"><span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
-        <h1><a href="/" title="回到首頁">Django Girls Blog</a></h1>
+        <h1><a href="{% url 'blog.views.post_list' %}" title="回到首頁">Django Girls Blog</a></h1>
+
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
             {% block content %}
             {% endblock %}
+            </div>
+            <div class="col-md-4">
+            gogo
             </div>
         </div>
     </div>

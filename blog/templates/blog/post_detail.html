@@ -4,12 +4,22 @@
     <div class="post">
         {% if post.published_date %}
             <div class="date">
+                Post:
                 {{ post.published_date|date:'Y年 m月 d日  l' }}
 
                 {% if user.is_authenticated %}
                 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}" title="編輯貼文"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}" title="刪除貼文"><span class="glyphicon glyphicon-remove"></span></a>
                 {% endif %}
             </div>
+        {% else %}
+        	<div class="date">
+	        	Created: 
+	        	{{ post.created_date|date:'Y年 m月 d日  l' }}
+	        	{% if user.is_authenticated %}
+	        	<a class="btn btn-default" href="{% url 'blog.views.post_publish' pk=post.pk %}">Publish</a>    
+	        	{% endif %}
+        	</div>
         {% endif %}
 
         <h1>{{ post.title }}</h1>
