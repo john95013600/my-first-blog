@@ -25,4 +25,33 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
+    <hr>
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}" title="新增評論">Add comment</a>
+    {% for comment in post.comments.all %}
+        {% if user.is_authenticated or comment.approved_comment %}
+            <div class="comment">
+                <div class="date">
+                    {{ comment.created_date|date:'Y年 m月 d日  l' }}
+                    
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}" title="刪除評論"><span class="glyphicon glyphicon-remove"></span></a>
+                        {% if comment.approved_comment %}
+                            <a class="btn btn-default" href="{% url 'comment_non_approve' pk=comment.pk %}" title="隱藏評論"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                        {% else %}
+                            <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}" title="顯示評論"><span class="glyphicon glyphicon-ok"></span></a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <strong>{{ comment.author }}</strong>
+                <p>{{ comment.text|linebreaks }}</p>
+            </div>
+        {% endif %}
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+
 {% endblock %}
+
+
+<!-- 貼文應該大家都能看見 而管理員可以決定是否顯示該則評論 -->
+<!-- 所以說commit commet後應該直接approved  再由管理員決定是否刪除或屏蔽貼文 -->
