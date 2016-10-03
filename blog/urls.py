@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/non_approve/$', views.comment_non_approve, name='comment_non_approve'),    
 	url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+    url(r'^google89ddee9020d2d516.html', views.google_search, name='google_search'),
  	url(r'',views.handler404,name='nofound404'),
 ]
 
