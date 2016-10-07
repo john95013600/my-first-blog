@@ -7,8 +7,16 @@
                 <p>Post: {{ post.published_date|date:"Y年 m月 d日 l" }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+            <hr>
+            <p>{{ post.text|linebreaksbr|truncatechars_html:30 }} <a href=""> (繼續閱讀)</a></p>
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+
+             <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="/post/{{ post.pk }}/"></a>
+            <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                
     	</div>
 	{% endfor %}
 {% endblock %}
+
+<!-- change post format to => post_type/date_time/comments_count -->
+<!-- http://blog.spoongraphics.co.uk/ -->
+<!-- http://webdesignerwall.com/ -->

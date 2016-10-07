@@ -16,9 +16,20 @@
         <a href="{% url 'post_draft_list' %}" class="top-menu" title="編輯草稿"><span class="glyphicon glyphicon-edit"></span></a>
         <p class="top-menu">Hello, {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
         {% else %}
-        <a href="{% url 'login' %}" class="top-menu" title="帳號登入"><span class="glyphicon glyphicon-lock"></span></a>
+        <a href="{% url 'login' %}" class="top-menu" title="帳號登入">Sign in <span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
         <h1><a href="{% url 'blog.views.post_list' %}" title="回到首頁">Django Girls Blog</a></h1>
+        <div>
+            <div class="top-row">
+                <h2>Photo.</h2>
+            </div>
+            <div class="top-row">
+                <h2>Article.</h2>
+            </div>
+            <div class="top-row">
+                <h2>About Me.</h2>
+            </div>
+        </div>
 
     </div>
     <div class="content container">
@@ -27,10 +38,19 @@
             {% block content %}
             {% endblock %}
             </div>
-           <!--  <div class="col-md-4">
-            gogo
-            </div> -->
+            <div class="col-md-4">
+                <div class="right-bar">
+                    gogo
+                </div>
+            
+            </div>
         </div>
+    </div>
+    <div id="footer">
+        <hr>
+        © <a href="https://www.facebook.com/profile.php?id=100000775049013">john95013600</a>  Since 2016 .
+        <br>
+        <p style="margin-top: 5px">Contact : <a href="mailto:s101321004@mail1.ncnu.edu.tw"><span class="glyphicon glyphicon-envelope" ></span> Me</a></p>
     </div>
 </body>
 </html>

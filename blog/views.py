@@ -3,9 +3,15 @@ from django.utils import timezone
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.utils.translation import string_concat
 from .forms import PostForm, CommentForm
-
 from .models import Post, Comment
+
+from django.contrib import auth
+
+
+
 # post  有published_date的貼文
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -32,6 +38,7 @@ def post_new(request):
 		    post.author = request.user
 		    # post.published_date = timezone.now()
 		    # published_date 不應該改
+            # post.post_url = post.post_url
 		    post.save()
 		    return redirect('post_detail', pk=post.pk)
 	else:

@@ -1,9 +1,9 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
+    <div class="post" >
         {% if post.published_date %}
-            <div class="date">
+            <div class="date" title="{{ post.post_url }}">
                 Post:
                 {{ post.published_date|date:'Y年 m月 d日  l' }}
 
@@ -49,7 +49,35 @@
     {% empty %}
         <p>No comments here yet :(</p>
     {% endfor %}
+    <div>{{ post.post_url }}post/{{ post.pk }}/</div>
+    <div id="disqus_thread"></div>
+    <script>
 
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+    
+    var disqus_config = function () {
+        this.page.url = "http://john95013600.pythonanywhere.com/post/"+'{{ post.pk }}'+"/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "/post/"+'{{ post.pk }}'+"/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        console.log(this.page.url);
+        console.log( this.page.identifier)
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//sai-s-website.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    <!-- comment number -->
+    <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="/post/{{ post.pk }}/"></a>
+    <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                        
+                                    
+                                    
 {% endblock %}
 
 
