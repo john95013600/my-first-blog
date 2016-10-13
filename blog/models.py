@@ -23,7 +23,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 # published_date 只有在第一次被publish時改變
-# 新增 edited_date
+# 新增 last_edited_date
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')

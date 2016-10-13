@@ -23,11 +23,16 @@ def handler404(request):
     return render(request,'blog/404.html')
 
 def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    # if post.exist():
-    return render(request, 'blog/post_detail.html', {'post': post})
-    # else:
-    #     return render(request,'blog/404.html')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    try:
+        # post = get_object_or_404(Post, pk=pk)
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        post = None
+    if post != None:
+        return render(request, 'blog/post_detail.html', {'post': post,'list': posts})
+    else:
+        return redirect('nofound404')
 
 @login_required
 def post_new(request):
@@ -83,9 +88,11 @@ def add_comment_to_post(request, pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=True)
+            comment = form.save(commit=False)
             comment.post = post
+            comment.approved_comment = True
             comment.save()
+
             return redirect('blog.views.post_detail', pk=post.pk)
     else:
         form = CommentForm

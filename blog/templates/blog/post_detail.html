@@ -23,7 +23,10 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <!-- <p>{{ post.text|linebreaksbr }}</p> -->
+        {% autoescape off %}
+        <div>{{ post.text|linebreaks }}</div>
+       {% endautoescape %}
     </div>
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}" title="新增評論">Add comment</a>
@@ -50,18 +53,21 @@
         <p>No comments here yet :(</p>
     {% endfor %}
     <div>{{ post.post_url }}post/{{ post.pk }}/</div>
-    <div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread" class="/post/{{ post.pk}}/"></div>
     <script>
 
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-    
+    var url2 = "http://john95013600.pythonanywhere.com/post/"+'{{ post.pk }}'+"/";
+    var identifier2 =  "/post/{{ post.pk }}/";
+    console.log(url2);
     var disqus_config = function () {
-        this.page.url = "http://john95013600.pythonanywhere.com/post/"+'{{ post.pk }}'+"/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "/post/"+'{{ post.pk }}'+"/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = url2;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = identifier2; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.title = "{{post.title}}";
         console.log(this.page.url);
-        console.log( this.page.identifier)
+        console.log( this.page.identifier);
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE
@@ -70,16 +76,50 @@
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
+
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-    <!-- comment number -->
-    <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="/post/{{ post.pk }}/"></a>
+    <button></button>
+    <!- comment number -->
+    <!-- <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="{{ post.post_url|add:'post/'|add:post.pk }}"></a>
     <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                        
-                                    
-                                    
+    <button onclick="go()">click</button>    -->   
+    
+    <div class="fb-comments" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-width="480" data-numposts="5"></div>
+
 {% endblock %}
 
+{% block rightbar %}
+    <div>
+        {% for post in list %}  
+            {% ifchanged %}
+                <ul class="L1"><li><div><span> ▼&nbsp;</span></div><h2>{{   post.published_date|date:"Y年" }}</h2>
+            {% endifchanged %}
+            {% ifchanged %}
+                <ul class="L2"><li><div><span> ▼&nbsp;</span></div><h3>{{  post.published_date|date:"F" }}</h3>
+            {% endifchanged %}
+
+            <!-- <p>{{ forloop.counter }}</p> -->
+                {% for post2 in list %}    
+ 
+                    {% if forloop.parentloop.counter == forloop.counter %}
+                
+                    <ul class="L3"><li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars_html:20 }}</a></li></ul>
+                {% endif %}
+                {% if forloop.parentloop.counter|add:1 == forloop.counter %}
+                    {% if post.published_date|date:"F" != post2.published_date|date:"F" %}
+                    </li></ul>
+                    {% endif %}
+
+                    {% if post.published_date|date:"Y年" != post2.published_date|date:"Y年" %}
+                    </li>
+                    {% endif %}
+                {% endif %}
+
+            {% endfor %}
+        {% endfor %}
+        </ul></div>
+{% endblock%}    
 
 <!-- 貼文應該大家都能看見 而管理員可以決定是否顯示該則評論 -->
 <!-- 所以說commit commet後應該直接approved  再由管理員決定是否刪除或屏蔽貼文 -->

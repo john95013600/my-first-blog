@@ -8,14 +8,49 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <hr>
-            <p>{{ post.text|linebreaksbr|truncatechars_html:30 }} <a href=""> (繼續閱讀)</a></p>
+            {% autoescape off %}
+            <div><div class="div2">{{ post.text|linebreaksbr|truncatechars_html:30 }} <a href="{% url 'post_detail' pk=post.pk %}" style="display:inline-block;margin:0px 0px 0px 5px">(繼續閱讀)</a></div></div>
+            {% endautoescape %}
+
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 
-             <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="/post/{{ post.pk }}/"></a>
+             <a href="{{ post.post_url }}#disqus_thread" data-disqus-identifier="{{ post.pk }}"></a>
             <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                
     	</div>
 	{% endfor %}
 {% endblock %}
+
+{% block rightbar %}
+    <div>
+        {% for post in posts %}  
+            {% ifchanged %}
+                <ul class="L1"><li><div><span> ▼&nbsp;</span></div><h2>{{   post.published_date|date:"Y年" }}</h2>
+            {% endifchanged %}
+            {% ifchanged %}
+                <ul class="L2"><li><div><span> ▼&nbsp;</span></div><h3>{{  post.published_date|date:"F" }}</h3>
+            {% endifchanged %}
+
+            <!-- <p>{{ forloop.counter }}</p> -->
+                {% for post2 in posts %}    
+ 
+                    {% if forloop.parentloop.counter == forloop.counter %}
+                
+                    <ul class="L3"><li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars_html:20 }}</a></li></ul>
+                {% endif %}
+                {% if forloop.parentloop.counter|add:1 == forloop.counter %}
+                    {% if post.published_date|date:"F" != post2.published_date|date:"F" %}
+                    </li></ul>
+                    {% endif %}
+
+                    {% if post.published_date|date:"Y年" != post2.published_date|date:"Y年" %}
+                    </li>
+                    {% endif %}
+                {% endif %}
+
+            {% endfor %}
+        {% endfor %}
+        </ul></div>
+{% endblock%}
 
 <!-- change post format to => post_type/date_time/comments_count -->
 <!-- http://blog.spoongraphics.co.uk/ -->

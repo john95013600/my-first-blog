@@ -1,10 +1,18 @@
+body {
+    background: #f594af;
+}
 .page-header {
     background-color: #ff9400;
     margin-top: 0;
     padding: 20px 20px 10px 40px;
 }
-
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+a, a:visited, a:hover {
+    text-decoration: none;
+}
+.page-header a {
+    color: #000000;
+}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, {
     color: #ffffff;
     font-size: 36pt;
     text-decoration: none;
@@ -20,7 +28,7 @@
     border: 2px #000000 dotted;
 }
 .top-row  h2{
-    margin: 10px 0px;
+    margin: 5px 0px;
 }
 h1, h2, h3, h4 {
     font-family: "PT Serif",Georgia,Times,"Times New Roman","Songti SC","Hiragino Mincho ProN",serif;
@@ -29,7 +37,7 @@ h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 .content {
-    margin-left: 40px;
+    margin: auto;
 }
 
 .col-md-8 {
@@ -93,4 +101,36 @@ h1, h2, h3, h4 {
 #footer a:hover{
     color: #008046;
     border-bottom: 1px solid #00233c;
+}
+pre {
+    border-left: 5px rgba(0,0,0,0.8) solid
+}
+.div2 {
+    display: inline-flex;
+}
+ul {
+    list-style-type: none;
+}
+.L1 div, .L1 h2, .L2 div, .L2 h3{
+    display: inline-block;
+}
+.L1 div{
+    font-size: 30px;
+    cursor: pointer;
+}
+.L2 div{
+    font-size: 24px;
+       cursor: pointer;
+}
+.right-bar a{
+    color: #333;
+    font-size: 20px;
+}
+.L2 > li {
+        margin: -10px -5px;
+}
+@media only screen and (max-width: 768px) {
+    .col-md-4 {
+        display: none;
+    }
 }
