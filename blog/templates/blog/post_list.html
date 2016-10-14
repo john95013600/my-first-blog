@@ -14,8 +14,9 @@
 
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 
-             <a href="{{ post.post_url }}#disqus_thread" data-disqus-identifier="{{ post.pk }}"></a>
-            <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                
+<!--              <a href="{{ post.post_url }}#disqus_thread" data-disqus-identifier="{{ post.pk }}"></a>
+            <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>     -->
+            <a href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/#fb-comments"><span class="fb-comments-count" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/"></span> comments</a>    
     	</div>
 	{% endfor %}
 {% endblock %}

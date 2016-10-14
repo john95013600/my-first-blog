@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-        <title>Django Girls blog</title>
+        <title>Sai's website</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 		 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
          <link rel="icon" href="{% static 'icon2.ico' %}"" type="image/x-icon">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-         <!-- icon change -->
+         <meta property="fb:app_id" content="1195677513840426" />
     </head>
     <body>
     <div id="fb-root"></div>
@@ -17,7 +17,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=585863394866930";
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=1195677513840426";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
     <div class="page-header">
@@ -85,29 +85,8 @@ $(document).ready(function(){
                 $(this).parent().find("span").html(" ▼&nbsp;");
             }
     });
-      function go(){
-        console.log("disqus");
-      window.DISQUS.reset({
-      reload: true,
-      config: function () {
-      this.page.identifier = $('#disqus_thread').attr("class");
-      this.page.url = "http://john95013600.pythonanywhere.com"+$('#disqus_thread').attr("class");
-      }
-      });
-   }
+     
 });
-function go(){
-        console.log("disqus");
-      window.DISQUS.reset({
-      reload: true,
-      config: function () {
-      this.page.identifier = $('#disqus_thread').attr("class");
-      console.log($('#disqus_thread').attr("class"));
-      this.page.url = "http://john95013600.pythonanywhere.com"+$('#disqus_thread').attr("class");
-      console.log("http://john95013600.pythonanywhere.com"+$('#disqus_thread').attr("class"));
-      }
-      });
-   }
 </script>
 </body>
 </html>

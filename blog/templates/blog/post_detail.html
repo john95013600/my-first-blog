@@ -23,7 +23,6 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
-        <!-- <p>{{ post.text|linebreaksbr }}</p> -->
         {% autoescape off %}
         <div>{{ post.text|linebreaks }}</div>
        {% endautoescape %}
@@ -52,7 +51,8 @@
     {% empty %}
         <p>No comments here yet :(</p>
     {% endfor %}
-    <div>{{ post.post_url }}post/{{ post.pk }}/</div>
+    <!-- <div>{{ post.post_url }}post/{{ post.pk }}/</div> -->
+
     <!-- <div id="disqus_thread" class="/post/{{ post.pk}}/"></div>
     <script>
 
@@ -79,13 +79,11 @@
 
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <button></button>
-    <!- comment number -->
-    <!-- <a href="{{ post.post_url|add:'post/'|add:post.pk }}#disqus_thread" data-disqus-identifier="{{ post.post_url|add:'post/'|add:post.pk }}"></a>
-    <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>                        
-    <button onclick="go()">click</button>    -->   
+    <button></button><-->
+
     
-    <div class="fb-comments" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-width="480" data-numposts="5"></div>
+    <div id="fb-comments"></div>
+    <div class="fb-comments" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-width="480" data-numposts="5" data-mobile="True"></div>
 
 {% endblock %}
 
