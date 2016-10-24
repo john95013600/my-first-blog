@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+        <meta name="viewport" content="width=device-widt, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>Sai's website</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -9,7 +9,8 @@
 		 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
          <link rel="icon" href="{% static 'icon2.ico' %}"" type="image/x-icon">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-         <meta property="fb:app_id" content="1195677513840426" />
+         <meta property="og:title" content="Sai's website">
+         <meta property="fb:app_id" content="{1195677513840426}" />
     </head>
     <body>
     <div id="fb-root"></div>
@@ -85,7 +86,45 @@ $(document).ready(function(){
                 $(this).parent().find("span").html(" ▼&nbsp;");
             }
     });
-     
+
+    $(".L1_1 > li > div").click(function(){
+        // console.log($(this).parent().find($("ul .L2")));
+        $(this).parent().find($("ul .L3_1")).toggle();
+        // console.log($(this).parent().find($(".L1 > li > div > span")));
+         if($(this).parent().find($(".L1_1 > li > div > span")).html()==" ▼&nbsp;"){
+                $(this).parent().find($(".L1_1 > li > div > span")).html(" ►&nbsp;");
+            }
+            else{
+                $(this).parent().find($(".L1_1 > li > div > span")).html(" ▼&nbsp;");
+            }
+    });
+
+
+
+    $("#search").click(function(){
+        var start_date = document.getElementById("post_date_start").value;
+        var end_date = document.getElementById("post_date_end").value;
+        var post_title = document.getElementById("post_title").value;
+        var reg=/[@#\$%\^&\*_-\s]+/g ;
+        if(post_title.match(reg))
+        {
+            // alert("查詢輸入中有特殊字符，請重新輸入！");
+            $("#post_title").html("");
+            $("#con").html("查詢輸入中有特殊字符，請重新輸入！");
+        }
+        else
+        {
+            console.log('123');
+            // $("#con").html(start_date + "/" + end_date + "/" + post_title);
+            var tag = $("<a>Click to see the result.</a>").attr("href", "http://127.0.0.1:8000/search/"+start_date + "/" + end_date + "/" + post_title+"/");
+            console.log('456');
+            // $("#con").html(<a>start_date + "/" + end_date + "/" + post_title);
+            $("#con").html(tag);
+            console.log('789');
+        }
+        
+    });
+    
 });
 </script>
 </body>

@@ -51,36 +51,6 @@
     {% empty %}
         <p>No comments here yet :(</p>
     {% endfor %}
-    <!-- <div>{{ post.post_url }}post/{{ post.pk }}/</div> -->
-
-    <!-- <div id="disqus_thread" class="/post/{{ post.pk}}/"></div>
-    <script>
-
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-    var url2 = "http://john95013600.pythonanywhere.com/post/"+'{{ post.pk }}'+"/";
-    var identifier2 =  "/post/{{ post.pk }}/";
-    console.log(url2);
-    var disqus_config = function () {
-        this.page.url = url2;  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = identifier2; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        this.page.title = "{{post.title}}";
-        console.log(this.page.url);
-        console.log( this.page.identifier);
-    };
-    
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = '//sai-s-website.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <button></button><-->
-
     
     <div id="fb-comments"></div>
     <div class="fb-comments" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-width="480" data-numposts="5" data-mobile="True"></div>
@@ -88,8 +58,10 @@
 {% endblock %}
 
 {% block rightbar %}
+    <!-- <iframe class="youtube" width="420" height="345" src="https://www.youtube.com/embed/C-xF2MAFw5s?playlist=PQ9PaRuwxek,FDYHYbF7n9A&loop=1&autoplay=1"></iframe> -->
     <div>
-        {% for post in list %}  
+        <h2 class="classify"><span class="glyphicon glyphicon-time"></span>&nbsp;時間分類</h2>
+        {% for post in postall %}  
             {% ifchanged %}
                 <ul class="L1"><li><div><span> ▼&nbsp;</span></div><h2>{{   post.published_date|date:"Y年" }}</h2>
             {% endifchanged %}
@@ -98,7 +70,7 @@
             {% endifchanged %}
 
             <!-- <p>{{ forloop.counter }}</p> -->
-                {% for post2 in list %}    
+                {% for post2 in postall %}    
  
                     {% if forloop.parentloop.counter == forloop.counter %}
                 
@@ -110,13 +82,50 @@
                     {% endif %}
 
                     {% if post.published_date|date:"Y年" != post2.published_date|date:"Y年" %}
+                    </li></ul>
+                    {% endif %}
+                {% endif %}
+
+            {% endfor %}
+        {% endfor %}
+        </li></ul></li></ul>
+
+        <h2 class="classify"><span class="glyphicon glyphicon-tags"></span>&nbsp;文章分類</h2>
+        {% for post in class %}  
+            {% ifchanged %}
+                <ul class="L1_1"><li><div><span> ▼&nbsp;</span></div><h2>{{  post.post_type }}</h2>
+            {% endifchanged %}
+
+
+                {% for post2 in class %}    
+ 
+                    {% if forloop.parentloop.counter == forloop.counter %}
+                
+                    <ul class="L3_1"><li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars_html:20 }}</a></li></ul>
+                {% endif %}
+                {% if forloop.parentloop.counter|add:1 == forloop.counter %}
+                    {% if post.post_type != post2.post_type %}
+                    </li></ul>
+                    {% endif %}
+
+                    {% if post.post_type != post2.post_type %}
                     </li>
                     {% endif %}
                 {% endif %}
 
             {% endfor %}
         {% endfor %}
-        </ul></div>
+        </ul></li>
+    </div>
+
+    <div class="searchbox">
+        <h2><span class="glyphicon glyphicon-search"></span>貼文查詢</h2>
+        <p>起始時間: </p><input type="date" id="post_date_start" value="2016-10-24"><br>
+        <p>結束時間: </p><input type="date" id="post_date_end" value="2016-10-24"><br>
+        <p>標題: </p><input type="text" id="post_title"><br>
+        <button id="search">查詢</button>
+        <p id="con"></p>
+    </div>
 {% endblock%}    
 
 <!-- 貼文應該大家都能看見 而管理員可以決定是否顯示該則評論 -->

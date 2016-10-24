@@ -17,6 +17,9 @@ a, a:visited, a:hover {
     font-size: 36pt;
     text-decoration: none;
 }
+.row {
+    margin-left: 50px;
+}
 .top-row {
     display: inline-block;
     margin: 10px 10px;
@@ -32,21 +35,22 @@ a, a:visited, a:hover {
 }
 h1, h2, h3, h4 {
     font-family: "PT Serif",Georgia,Times,"Times New Roman","Songti SC","Hiragino Mincho ProN",serif;
+    margin: 5px 0px 10px 0px;
 }
 .page-header h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 .content {
     margin: auto;
+    width: 100%;
 }
-
 .col-md-8 {
     border-radius: 5px;
     border: 1px #d9d9d9 solid;
 }
 .col-md-4 {
-    position: absolute;
-    right: 0%;
+    position: relative;
+    padding-left: 30px;
 }
 
 .date {
@@ -69,7 +73,8 @@ h1, h2, h3, h4 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+    font-size: 16px;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -81,7 +86,7 @@ h1, h2, h3, h4 {
 }
 
 .post .date::first-letter {
-    font-size: 200%;
+    font-size: 150%;
     /*color: #8A2BE2;*/
 }
 .comment {
@@ -105,16 +110,17 @@ h1, h2, h3, h4 {
 pre {
     border-left: 5px rgba(0,0,0,0.8) solid
 }
-/*.div2 {
-    display: inline-flex;
-}*/
+.div1 {
+    margin-bottom: 5px;
+}
 ul {
     list-style-type: none;
+    margin: 0px;
 }
-.L1 div, .L1 h2, .L2 div, .L2 h3{
+.L1 div, .L1 h2, .L2 div, .L2 h3, .L1_1 div, .L1_1 h2{
     display: inline-block;
 }
-.L1 div{
+.L1 div, .L1_1 div{
     font-size: 30px;
     cursor: pointer;
 }
@@ -126,8 +132,25 @@ ul {
     color: #333;
     font-size: 20px;
 }
+.classify  {
+    padding-left: 40px;
+    margin: 15px 0px 10px 0px;
+}
 .L2 > li {
         margin: -10px -5px;
+}
+.youtube {
+    width: 100%;
+    border-style: outset;
+    border-color: #00cc88;
+    border-width: 3px 3px 5px 3px ;
+}
+.searchbox {
+    padding: 20px 0px 0px 40px;
+    font-size: 20px;
+}
+.searchbox #search {
+    margin-top: 10px;
 }
 @media only screen and (max-width: 768px) {
     .col-md-4 {
