@@ -133,7 +133,7 @@
             $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com/post/{{ post.pk}}/" />').append(
                 '<meta property="og:type"   content="article" />').append('<meta property="og:title" content="{{ post.title }}" />').append(
                 '<meta property="og:description" content="{{ post.text|linebreaksbr|truncatechars_html:30 }}" />').append(
-                '<meta property="og:image" content="' + img + '"" />');
+                '<meta property="og:image" content="' + img + '" />');
                 // description過濾特殊字元 顯示簡短的描述
         });
     </script>
