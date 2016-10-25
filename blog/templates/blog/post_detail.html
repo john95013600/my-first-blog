@@ -4,13 +4,13 @@
     <div class="post" >
         {% if post.published_date %}
             <div class="date" title="{{ post.post_url }}">
-                Post:
                 {{ post.published_date|date:'Y年 m月 d日  l' }}
 
                 {% if user.is_authenticated %}
                 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}" title="編輯貼文"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}" title="刪除貼文"><span class="glyphicon glyphicon-remove"></span></a>
                 {% endif %}
+                <span>&nbsp;<div class="fb-like" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true" ></div></span>
             </div>
         {% else %}
         	<div class="date">
@@ -28,7 +28,7 @@
        {% endautoescape %}
     </div>
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}" title="新增評論">Add comment</a>
+    <!-- <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}" title="新增評論">Add comment</a>
     {% for comment in post.comments.all %}
         {% if user.is_authenticated or comment.approved_comment %}
             <div class="comment">
@@ -50,7 +50,7 @@
         {% endif %}
     {% empty %}
         <p>No comments here yet :(</p>
-    {% endfor %}
+    {% endfor %} -->
     
     <div id="fb-comments"></div>
     <div class="fb-comments" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-width="480" data-numposts="5" data-mobile="True"></div>
@@ -69,7 +69,6 @@
                 <ul class="L2"><li><div><span> ▼&nbsp;</span></div><h3>{{  post.published_date|date:"F" }}</h3>
             {% endifchanged %}
 
-            <!-- <p>{{ forloop.counter }}</p> -->
                 {% for post2 in postall %}    
  
                     {% if forloop.parentloop.counter == forloop.counter %}
@@ -126,6 +125,15 @@
         <button id="search">查詢</button>
         <p id="con"></p>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com" />').append(
+                '<meta property="og:type"   content="article" />').append('<meta property="og:title" content="{{ post.title }}" />').append(
+                '<meta property="og:description" content="{{ post.text|linebreaksbr|truncatechars_html:30 }}" />');
+
+        });
+    </script>
 {% endblock%}    
 
 <!-- 貼文應該大家都能看見 而管理員可以決定是否顯示該則評論 -->

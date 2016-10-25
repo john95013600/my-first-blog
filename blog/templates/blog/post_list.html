@@ -12,11 +12,10 @@
             <div class="div1"><div class="div2">{{ post.text|linebreaksbr|truncatechars_html:30 }} <a href="{% url 'post_detail' pk=post.pk %}" style="display:inline-block;margin:0px 0px 0px 5px">(繼續閱讀)</a></div></div>
             {% endautoescape %}
 
-            <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+            <!-- <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a> -->
 
-<!--              <a href="{{ post.post_url }}#disqus_thread" data-disqus-identifier="{{ post.pk }}"></a>
-            <script id="dsq-count-scr" src="//sai-s-website.disqus.com/count.js" async></script>     -->
-            <a href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/#fb-comments"><span class="fb-comments-count" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/"></span> comments</a>    
+            <a href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/#fb-comments"><span class="fb-comments-count" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/"></span> comments</a>
+            <div class="fb-like" data-href="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     	</div>
     {% empty %}
         <h1>很抱歉，您查詢的貼文沒有找到，請輸入正確的時間或標題。</h1>
@@ -92,6 +91,15 @@
         <button id="search">查詢</button>
         <p id="con"></p>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com" />').append(
+                '<meta property="og:type"   content="website" />').append('<meta property="og:title" content="Sai\'s website" />').append(
+                '<meta property="og:description" content="Welcome to my personal website!" />');
+
+        });
+    </script>
 {% endblock%}
 
 <!-- change post format to => post_type/date_time/comments_count -->
