@@ -3,7 +3,7 @@
 {% block content %}
     <div class="post" >
         {% if post.published_date %}
-            <div class="date" title="{{ post.post_url }}">
+            <div class="date">
                 {{ post.published_date|date:'Y年 m月 d日  l' }}
 
                 {% if user.is_authenticated %}
@@ -128,10 +128,10 @@
 
     <script>
         $(document).ready(function(){
-            $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com" />').append(
+            $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com/post/{{ post.pk}}/" />').append(
                 '<meta property="og:type"   content="article" />').append('<meta property="og:title" content="{{ post.title }}" />').append(
                 '<meta property="og:description" content="{{ post.text|linebreaksbr|truncatechars_html:30 }}" />');
-
+                // description過濾特殊字元 顯示簡短的描述
         });
     </script>
 {% endblock%}    
