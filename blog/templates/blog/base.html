@@ -13,7 +13,7 @@
         <meta property="og:url"   content="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" />
         <meta property="og:type"   content="article" />
         <meta property="og:title" content="{{ post.title }}" />
-        <meta property="og:description" content="{{ post.text|truncatechars_html:50 }}" />
+        <meta property="og:description" content="{{ post.text|truncatechars_html:100 }}" />
         <meta property="og:image" content="" />
         {% else %}
         <meta property="og:url"   content="http://john95013600.pythonanywhere.com" />
@@ -110,6 +110,9 @@ $(document).ready(function(){
                 $(this).parent().find($(".L1_1 > li > div > span")).html(" ▼&nbsp;");
             }
     });
+
+    document.getElementById("post_date_start").valueAsDate = new Date();
+    document.getElementById("post_date_end").valueAsDate = new Date();
 
 
 

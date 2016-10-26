@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block rightbar %}
-    <!-- <iframe class="youtube" width="420" height="345" src="https://www.youtube.com/embed/C-xF2MAFw5s?playlist=PQ9PaRuwxek,FDYHYbF7n9A&loop=1&autoplay=1"></iframe> -->
+    <iframe class="youtube" width="420" height="345" src="https://www.youtube.com/embed/C-xF2MAFw5s?playlist=PQ9PaRuwxek,FDYHYbF7n9A&loop=1&autoplay=1"></iframe>
     <div>
         <h2 class="classify"><span class="glyphicon glyphicon-time"></span>&nbsp;時間分類</h2>
         {% for post in postall %}  
@@ -85,22 +85,13 @@
 
     <div class="searchbox">
         <h2><span class="glyphicon glyphicon-search"></span>貼文查詢</h2>
-        <p>起始時間: </p><input type="date" id="post_date_start" value="2016-10-24"><br>
-        <p>結束時間: </p><input type="date" id="post_date_end" value="2016-10-24"><br>
-        <p>標題: </p><input type="text" id="post_title"><br>
+        <p>起始時間: </p><input type="date" id="post_date_start" ><br>
+        <p>結束時間: </p><input type="date" id="post_date_end" ><br>
+        <p>標題: </p><input type="text" id="post_title" placeholder="請輸入想要查詢的關鍵字..."><br>
         <button id="search">查詢</button>
         <p id="con"></p>
     </div>
 
-<!--     <script>
-        $(document).ready(function(){
-
-            $('head').append('<meta property="og:url"   content="http://john95013600.pythonanywhere.com" />').append(
-                '<meta property="og:type"   content="website" />').append('<meta property="og:title" content="Sai\'s website" />').append(
-                '<meta property="og:description" content="Welcome to my personal website!" />');
-
-        });
-    </script> -->
 {% endblock%}
 
 <!-- change post format to => post_type/date_time/comments_count -->
