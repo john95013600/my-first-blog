@@ -9,7 +9,12 @@
 		 <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
          <link rel="icon" href="{% static 'icon2.ico' %}"" type="image/x-icon">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-         <meta property="fb:app_id" content="1195677513840426" />
+        <meta property="og:url"   content="http://john95013600.pythonanywhere.com/post/{{ post.pk }}/" />
+        <meta property="og:type"   content="article" />
+        <meta property="og:title" content="{{ post.title }}" />
+        <meta property="og:description" content="{{ post.text|linebreaksbr|truncatechars_html:30 }}" />
+        <meta property="og:image" content="img" />
+        <meta property="fb:app_id" content="1195677513840426" />
     </head>
     <body>
     <div id="fb-root"></div>
@@ -114,10 +119,8 @@ $(document).ready(function(){
         else
         {
             console.log('123');
-            // $("#con").html(start_date + "/" + end_date + "/" + post_title);
             var tag = $("<a>Click to see the result.</a>").attr("href", "http://127.0.0.1:8000/search/"+start_date + "/" + end_date + "/" + post_title+"/");
             console.log('456');
-            // $("#con").html(<a>start_date + "/" + end_date + "/" + post_title);
             $("#con").html(tag);
             console.log('789');
         }
