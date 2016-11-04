@@ -22,3 +22,7 @@ urlpatterns = [
 
 # publist no pk object will return 404
 # delete can be done on anomounous account
+
+# photo : gllaery format to display my own picture
+# about me : introduce my personal experience and so on
+# article  need to display article type~~ ex: life  travel ...
