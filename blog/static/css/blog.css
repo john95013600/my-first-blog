@@ -155,6 +155,13 @@ ul {
 .fb-like.fb_iframe_widget{
     top: 7px;
 }
+input.gsc-search-button-v2{
+    width: 24px!important;
+    height: 24px!important;
+    padding: 3px!important;
+    margin-bottom: 2px!important;
+}
+
 @media only screen and (max-width: 768px) {
     .col-md-4 {
         display: none;
