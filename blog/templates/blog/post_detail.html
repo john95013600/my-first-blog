@@ -22,7 +22,7 @@
         	</div>
         {% endif %}
 
-        <h1>{{ post.title }}</h1>
+        <h1>{{ post.title }}<div class="tag">{{ post.post_type }}</div></h1>
         {% autoescape off %}
         <div>{{ post.text|linebreaks }}</div>
        {% endautoescape %}

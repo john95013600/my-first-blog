@@ -6,7 +6,7 @@
             <div class="date">
                 <p>{{ post.published_date|date:"Y年 m月 d日 l" }}</p>
             </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a><div class="tag">{{ post.post_type }}</div></h1>
             <hr>
             {% autoescape off %}
             <div class="div1"><div class="div2">{{ post.text|linebreaksbr|truncatechars_html:30 }} <a href="{% url 'post_detail' pk=post.pk %}" style="display:inline-block;margin:0px 0px 0px 5px">(繼續閱讀)</a></div></div>

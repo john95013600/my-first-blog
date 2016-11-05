@@ -93,8 +93,9 @@ h1, h2, h3, h4 {
     margin:  20px 0px 20px 20px;
 }
 #footer {
-    padding: 30px 0px 30px 0px;
+    padding: 30px 0px 15px 0px;
     text-align: center;
+    font-size: 20px;
 }
 
 #footer a {
@@ -161,7 +162,26 @@ input.gsc-search-button-v2{
     padding: 3px!important;
     margin-bottom: 2px!important;
 }
-
+.bl {
+    padding: 5px;
+    border-left: 5px rgb(92, 108, 226) solid;
+}
+.div > img {
+    width: 80%;
+}
+.div {
+    text-align: center;
+}
+.tag {
+    padding: 2px 8px;
+    border-radius: 15px;
+    border: 2px solid;
+    display: inline-block;
+    font-size: 20px;
+    position: relative;
+    bottom: 3px;
+    left: 50px;
+}
 @media only screen and (max-width: 768px) {
     .col-md-4 {
         display: none;

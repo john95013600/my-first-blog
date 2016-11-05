@@ -70,7 +70,7 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
+            # post.published_date = timezone.now()
             # published_date 不應該改
             post.save()
             return redirect('post_detail', pk=post.pk)
@@ -134,6 +134,4 @@ def comment_remove(request, pk):
 def google_search(request):
     return render(request, 'blog/google89ddee9020d2d516.html')
 
-# 新增分類查詢的view 
-# 將文章可能會用到的css e.g.:img(置中 寬高 border?) 、 borderleft( |asb |acsd  border?) 、quote( ::before ::after)...
-# fb api更多引用(按讚、分享、管理留言)
+
