@@ -25,6 +25,17 @@
         <h1>{{ post.title }}<div class="tag">{{ post.post_type }}</div></h1>
         {% autoescape off %}
         <div>{{ post.text|linebreaks }}</div>
+            <script>
+    window.onload = function(){
+        var a = document.getElementsByTagName("img");
+        for(i=0;i<a.length;i++){
+            if(a.item(i).offsetWidth < a.item(i).offsetHeight){
+                a.item(i).style.height = "600px";
+                a.item(i).style.width = "inherit";
+            }
+        }
+    }
+    </script>
        {% endautoescape %}
     </div>
     <hr>

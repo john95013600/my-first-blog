@@ -186,4 +186,7 @@ input.gsc-search-button-v2{
     .col-md-4 {
         display: none;
     }
+    .col-md-8 {
+        width: 90%;
+    }
 }
