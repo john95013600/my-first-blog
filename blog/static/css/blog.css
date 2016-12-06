@@ -27,8 +27,11 @@ a, a:visited, a:hover {
     border: 2px #ffffff dotted;
 }
 .top-row:hover {
-    color:#ffffff;
     border: 2px #000000 dotted;
+}
+.top-row h2:hover
+{
+    color:#ffffff;
 }
 .top-row  h2{
     margin: 5px 0px;

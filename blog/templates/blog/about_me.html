@@ -1,0 +1,272 @@
+<!-- 
+
+    <div id="footer">
+        <hr>
+        © <a href="https://www.facebook.com/profile.php?id=100000775049013">john95013600</a>  Since 2016 .
+        <br>
+        <p style="margin-top: 5px">Contact me : <a href="mailto:s101321004@mail1.ncnu.edu.tw"><span class="glyphicon glyphicon-envelope" ></span> Me</a></p>
+    </div>
+</body>
+</html> -->
+
+<!-- personal home page  -->
+<!-- about my experience and good at and interest .hobby.what do i wawnt to do -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-widt, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>Details about me:)</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	    <link rel="stylesheet" href="../../static/css/blog.css">
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="icon" href="../../static/icon2.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../static/css/jquery.fullPage.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <meta property="og:url"   content="http://john95013600.pythonanywhere.com/about_me/" />
+        <meta property="og:type"   content="website" />
+        <meta property="og:title" content="About_me" />
+        <meta property="og:description" content="There is  something about me." />
+        <meta property="og:image" content="http://john95013600.pythonanywhere.com/static/icon2.ico" />
+        <meta property="fb:app_id" content="1195677513840426" />
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: Lato, Arial, serif;
+			box-sizing: border-box;
+			font-weight: 600;
+		}
+		html{
+			min-width: 560px;
+		}
+	/*	h2::selection {
+			background-color: #333;
+			color: #eee;
+		}*/
+		.section{
+			position: relative;
+			text-align: center;
+		}
+		.nav-mid{
+			position: relative;
+			top:20%;
+			width: 80%;
+			height: 50%;
+			margin: auto;
+			background-color: #d8729b;
+			border: 5px  dotted black;
+			border-radius: 20px;
+			box-sizing: border-box;
+		}
+		.nav-extend{
+			height: 45%;
+			top: 0px;
+			margin: 15px auto;
+		}
+		.nav-left{
+			float: left;
+			position: relative;
+			width: 30%;
+		}
+		.nav-left h1{
+			width: 100px;
+		    margin: 0 0 0 20px;
+		    position: relative;
+		    color: #BECACC;
+		    background: #d8729b;
+		}
+		.nav-left::before{
+			content: "";
+		    position: absolute;
+		    top: 12px;
+		    left: 0;
+		    width: 80%;
+		    border-bottom: 4px solid #EAEEEF;
+		}
+		.nav-right{
+			float: left;
+			width: 64%;
+			/*background-color: #333;*/
+			font-size: 20px;
+			text-align: left;
+			line-height: 2;
+		}
+		.nav-photo{
+			position: fixed;
+			top:0px;
+			left: 0px;
+			width:100%;
+			height: 200px;
+			/*background-color: #00FF1C;*/
+			text-align: left;
+		}
+		.nav-photo span{
+			color: rgb(253, 175, 29);
+			font-size: 40px;
+			margin: 15px 20px;
+			letter-spacing: -2px;
+		}
+		#pic{
+			margin: auto;
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			text-align: center;
+			background-image: url("../../static/me.jpg");
+			background-size:100px 100px;
+			/*background-position:;*/
+			background-repeat:no-repeat;　
+		}
+		#pic::after{
+			content: "曾聖發"; color: #1c2b3d;
+			position: relative;
+			font-size: 20px;
+			font-weight: 600;
+			top:110px;
+		}
+		.top_right{
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			padding: 20px 20px 0px 0px;
+			color: #000000;
+			font-size: 26px;
+		}
+		.rotate{
+			margin: 0px 5px;
+			min-width: 180px;
+			min-height: 34px;
+		}
+		.switch-on{
+			position: absolute;
+			display: inline-block;
+			animation: rotateInWord .5s linear forwards;
+			-webkit-animation: rotateInWord .5s linear forwards;
+		}
+		.switch-off{
+			position: absolute;
+			display: inline-block;
+			animation: rotateOutWord .5s linear forwards;
+			-webkit-animation: rotateOutWord .5s linear forwards;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes rotateInWord {
+	    0% { opacity: 0; -webkit-transform: translateY(-30px); }
+		100% { opacity: 1; -webkit-transform: translateY(0px); }
+		}
+		@-webkit-keyframes rotateOutWord {
+		    0% { opacity: 1; -webkit-transform: translateY(0px); }
+			100% { opacity: 0; -webkit-transform: translateY(30px); }
+		}
+		@keyframes rotateInWord {
+		    0% { opacity: 0; transform: translateY(-30px); }
+			100% { opacity: 1; transform: translateY(0px); }
+		}
+		@keyframes rotateOutWord {
+		    0% { opacity: 1; transform: translateY(0px); }
+			100% { opacity: 0; transform: translateY(30px); }
+		}
+	</style>
+	<script type="text/javascript" src="../../static/css/jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#fullpage').fullpage({
+		        menu: '#menu',
+		        anchors:['關於我', '興趣','thirdpage','fourthPage'],
+		        navigation: true,
+		        navigationPosition: 'right',
+		        navigationTooltips: ['關於我', '興趣','thirdpage','fourthPage'],
+		        css3: true,
+		        scrollingSpeed: 700,
+		        scrollOverflow: false,
+		        sectionsColor: [ '#4BBFC3', '#7BAABE', 'whitesmoke', '#345']
+		    });
+
+			var rot = $('.rotate');
+				setInterval(function(){
+				seq = rot.find('.switch-on').next().length ? rot.find('.switch-on').next().index() : 0;
+				rot.find('.switch-on').addClass('switch-off').removeClass('switch-on');
+				rot.find('span').eq(seq).addClass('switch-on').removeClass('switch-off');
+			},3000);
+
+
+		});
+
+		
+	</script>
+</head>
+<body>
+
+
+	<div id="fullpage">
+		
+
+	   
+    <div class="section">
+	    <div class="nav-photo">
+	    	<div><span>Living</span><span>Like</span>What<span>You</span>Want</div>
+		    <div class="top_right" title="回到首頁"><a href="http://john95013600.pythonanywhere.com/">Back to Sai's website</a></div>
+		    <br>
+			<div id="pic"></div>
+	    </div>
+
+    	<div class="nav-mid">
+			<div class="nav-left">
+				<h1>關於我</h1>
+			</div>
+			<div class="nav-right">
+				<br>
+				目前就讀國立暨南國立大學大學部四年級，寫過C++、Sql、Javascript，修過清大教授開的網路線上課程，對網路有基本的認識，平常有空的時候會去參加一些校內的Workshop(例:MoLi)
+			</div>
+		</div>
+    </div>
+    <div class="section">
+		<div class="nav-mid nav-extend">
+			<div class="nav-left">
+				<h1>興趣</h1>
+			</div>
+			<div class="nav-right">
+				<br><span>
+				平常喜歡
+				<span class="rotate">
+					<span class="switch-on">看電影</span>
+					<span class="switch-off">打羽毛球</span>
+					<span class="switch-off">跑步</span>
+					<span class="switch-off">學好玩的語言</span>
+					<span class="switch-off">吃美食</span>
+				</span><br>
+				目前就讀國立暨南國立大學大學部四年級，
+				</span>
+			</div>
+		</div>
+		<div class="nav-mid nav-extend">
+			<div class="nav-left">
+				<h1>愛好</h1>
+			</div>
+			<div class="nav-right">
+				
+			</div>
+		</div>
+    </div>
+    <div class="section">Some section</div>
+     <div class="section">
+
+		    <div class="slide" data-anchor="slide1"><img src="" alt="">
+		    <br>Slide 1</div>
+		    <div class="slide"> <img src="" alt=""> Slide 2</div>
+		    <div class="slide"> Slide 3 </div>
+		    <div class="slide"> Slide 4 </div>
+			<div id="footer">
+        <hr>
+        © <a href="https://www.facebook.com/profile.php?id=100000775049013">john95013600</a>  Since 2016 .
+        <br>
+        <p style="margin-top: 5px">Contact me : <a href="mailto:s101321004@mail1.ncnu.edu.tw"><span class="glyphicon glyphicon-envelope" ></span> Me</a></p>
+    </div>
+		</div>
+
+</div>
+</body>
+</html>

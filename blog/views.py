@@ -11,6 +11,9 @@ from django.contrib import auth
 import datetime
 import pytz
 
+def about_me(request):
+    return render(request,'blog/about_me.html')
+
 # post 查詢詳細貼文屬性資料
 def post_search(request, sd, ed, title):
     naive_sd = datetime.datetime.strptime(sd, '%Y-%m-%d')
