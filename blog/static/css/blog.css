@@ -186,10 +186,14 @@ input.gsc-search-button-v2{
     left: 50px;
 }
 @media only screen and (max-width: 768px) {
+    .row {
+        margin-left: -15px;
+    }
     .col-md-4 {
         display: none;
     }
     .col-md-8 {
-        width: 90%;
+        width: 100%;
     }
+
 }
